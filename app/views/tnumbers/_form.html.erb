@@ -1,0 +1,41 @@
+<%= form_for(@tnumber) do |f| %>
+  <% if @tnumber.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tnumber.errors.count, "error") %> prohibited this tnumber from being saved:</h2>
+
+      <ul>
+      <% @tnumber.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :voicenumber %><br />
+    <%= f.number_field :voicenumber %>
+  </div>
+  <div class="field">
+    <%= f.label :sortnumber %><br />
+    <%= f.number_field :sortnumber %>
+  </div>
+  <div class="field">
+    <%= f.label :datein %><br />
+    <%= f.datetime_select :datein %>
+  </div>
+  <div class="field">
+    <%= f.label :dateout %><br />
+    <%= f.datetime_select :dateout %>
+  </div>
+  <div class="field">
+    <%= f.label :block %><br />
+    <%= f.check_box :block %>
+  </div>
+  <div class="field">
+    <%= f.label :tarif_id %><br />
+    <%= f.number_field :tarif_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

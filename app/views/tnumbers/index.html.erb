@@ -1,0 +1,33 @@
+<h1>Listing tnumbers</h1>
+
+<table>
+  <tr>
+    <th>Voicenumber</th>
+    <th>Sortnumber</th>
+    <th>Datein</th>
+    <th>Dateout</th>
+    <th>Block</th>
+    <th>Tarif</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tnumbers.each do |tnumber| %>
+  <tr>
+    <td><%= tnumber.voicenumber %></td>
+    <td><%= tnumber.sortnumber %></td>
+    <td><%= tnumber.datein %></td>
+    <td><%= tnumber.dateout %></td>
+    <td><%= tnumber.block %></td>
+    <td><%= tnumber.tarif_id %></td>
+    <td><%= link_to 'Show', tnumber %></td>
+    <td><%= link_to 'Edit', edit_tnumber_path(tnumber) %></td>
+    <td><%= link_to 'Destroy', tnumber, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Tnumber', new_tnumber_path %>

@@ -11,13 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130130052911) do
+ActiveRecord::Schema.define(:version => 20130130055755) do
 
   create_table "tarifs", :force => true do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "tnumbers", :force => true do |t|
+    t.integer  "voicenumber", :limit => 8
+    t.integer  "sortnumber"
+    t.datetime "datein"
+    t.datetime "dateout"
+    t.boolean  "block"
+    t.integer  "tarif_id"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
 
 end
