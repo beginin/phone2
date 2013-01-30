@@ -1,0 +1,23 @@
+<h1>Listing cfus</h1>
+
+<table>
+  <tr>
+    <th>Namecfu</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cfus.each do |cfu| %>
+  <tr>
+    <td><%= cfu.namecfu %></td>
+    <td><%= link_to 'Show', cfu %></td>
+    <td><%= link_to 'Edit', edit_cfu_path(cfu) %></td>
+    <td><%= link_to 'Destroy', cfu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Cfu', new_cfu_path %>

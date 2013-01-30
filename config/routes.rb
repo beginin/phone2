@@ -1,4 +1,7 @@
 Phone2::Application.routes.draw do
+  resources :cfus
+
+
   get "page/main"
 
   get "page/help"

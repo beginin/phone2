@@ -1,0 +1,21 @@
+<%= form_for(@cfu) do |f| %>
+  <% if @cfu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cfu.errors.count, "error") %> prohibited this cfu from being saved:</h2>
+
+      <ul>
+      <% @cfu.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :namecfu %><br />
+    <%= f.text_field :namecfu %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
