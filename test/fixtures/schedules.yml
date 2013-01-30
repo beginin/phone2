@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  timein: 2013-01-30 16:05:24
+  timeout: 2013-01-30 16:05:24
+
+two:
+  timein: 2013-01-30 16:05:24
+  timeout: 2013-01-30 16:05:24
