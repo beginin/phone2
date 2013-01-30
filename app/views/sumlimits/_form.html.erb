@@ -1,0 +1,25 @@
+<%= form_for(@sumlimit) do |f| %>
+  <% if @sumlimit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sumlimit.errors.count, "error") %> prohibited this sumlimit from being saved:</h2>
+
+      <ul>
+      <% @sumlimit.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :namelimit %><br />
+    <%= f.text_field :namelimit %>
+  </div>
+  <div class="field">
+    <%= f.label :money %><br />
+    <%= f.text_field :money %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

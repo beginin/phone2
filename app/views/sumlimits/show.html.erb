@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Namelimit:</b>
+  <%= @sumlimit.namelimit %>
+</p>
+
+<p>
+  <b>Money:</b>
+  <%= @sumlimit.money %>
+</p>
+
+
+<%= link_to 'Edit', edit_sumlimit_path(@sumlimit) %> |
+<%= link_to 'Back', sumlimits_path %>
