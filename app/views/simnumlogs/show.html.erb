@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Tnumber:</b>
+  <%= @simnumlog.tnumber_id %>
+</p>
+
+<p>
+  <b>Sim:</b>
+  <%= @simnumlog.sim_id %>
+</p>
+
+<p>
+  <b>Datestart:</b>
+  <%= @simnumlog.datestart %>
+</p>
+
+<p>
+  <b>Datestop:</b>
+  <%= @simnumlog.datestop %>
+</p>
+
+
+<%= link_to 'Edit', edit_simnumlog_path(@simnumlog) %> |
+<%= link_to 'Back', simnumlogs_path %>

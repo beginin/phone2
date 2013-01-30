@@ -1,0 +1,29 @@
+<h1>Listing simnumlogs</h1>
+
+<table>
+  <tr>
+    <th>Tnumber</th>
+    <th>Sim</th>
+    <th>Datestart</th>
+    <th>Datestop</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @simnumlogs.each do |simnumlog| %>
+  <tr>
+    <td><%= simnumlog.tnumber_id %></td>
+    <td><%= simnumlog.sim_id %></td>
+    <td><%= simnumlog.datestart %></td>
+    <td><%= simnumlog.datestop %></td>
+    <td><%= link_to 'Show', simnumlog %></td>
+    <td><%= link_to 'Edit', edit_simnumlog_path(simnumlog) %></td>
+    <td><%= link_to 'Destroy', simnumlog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Simnumlog', new_simnumlog_path %>

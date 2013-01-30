@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  tnumber_id: 1
+  sim_id: 1
+  datestart: 2013-01-30 14:15:13
+  datestop: 2013-01-30 14:15:13
+
+two:
+  tnumber_id: 1
+  sim_id: 1
+  datestart: 2013-01-30 14:15:13
+  datestop: 2013-01-30 14:15:13
