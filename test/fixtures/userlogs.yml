@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  cfu_id: 1
+  shedule_id: 1
+  sumlimit_id: 1
+  datestart: 2013-01-30 16:45:56
+  datestop: 2013-01-30 16:45:56
+
+two:
+  user_id: 1
+  cfu_id: 1
+  shedule_id: 1
+  sumlimit_id: 1
+  datestart: 2013-01-30 16:45:56
+  datestop: 2013-01-30 16:45:56

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @userlog.user_id %>
+</p>
+
+<p>
+  <b>Cfu:</b>
+  <%= @userlog.cfu_id %>
+</p>
+
+<p>
+  <b>Shedule:</b>
+  <%= @userlog.shedule_id %>
+</p>
+
+<p>
+  <b>Sumlimit:</b>
+  <%= @userlog.sumlimit_id %>
+</p>
+
+<p>
+  <b>Datestart:</b>
+  <%= @userlog.datestart %>
+</p>
+
+<p>
+  <b>Datestop:</b>
+  <%= @userlog.datestop %>
+</p>
+
+
+<%= link_to 'Edit', edit_userlog_path(@userlog) %> |
+<%= link_to 'Back', userlogs_path %>
