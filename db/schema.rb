@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130130081554) do
+ActiveRecord::Schema.define(:version => 20130130084555) do
 
   create_table "cfus", :force => true do |t|
     t.string   "namecfu"
@@ -64,6 +64,17 @@ ActiveRecord::Schema.define(:version => 20130130081554) do
     t.integer  "tarif_id"
     t.datetime "created_at",               :null => false
     t.datetime "updated_at",               :null => false
+  end
+
+  create_table "userlogs", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "cfu_id"
+    t.integer  "shedule_id"
+    t.integer  "sumlimit_id"
+    t.datetime "datestart"
+    t.datetime "datestop"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|
