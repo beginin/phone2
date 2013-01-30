@@ -1,0 +1,23 @@
+<h1>Listing sims</h1>
+
+<table>
+  <tr>
+    <th>Sirealnumber</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sims.each do |sim| %>
+  <tr>
+    <td><%= sim.sirealnumber %></td>
+    <td><%= link_to 'Show', sim %></td>
+    <td><%= link_to 'Edit', edit_sim_path(sim) %></td>
+    <td><%= link_to 'Destroy', sim, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sim', new_sim_path %>

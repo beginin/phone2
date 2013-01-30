@@ -1,0 +1,21 @@
+<%= form_for(@sim) do |f| %>
+  <% if @sim.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sim.errors.count, "error") %> prohibited this sim from being saved:</h2>
+
+      <ul>
+      <% @sim.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :sirealnumber %><br />
+    <%= f.text_field :sirealnumber %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
