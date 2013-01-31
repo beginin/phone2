@@ -3,7 +3,7 @@ Phone2::Application.routes.draw do
 
 
   resources :users
-
+  match 'users/:id/updateproporties' => 'users#updateproporties'
 
   resources :sumlimits
 
@@ -22,12 +22,9 @@ Phone2::Application.routes.draw do
 
   resources :simnumlogs
 
-
   resources :sims
 
-
   resources :tnumbers
-
 
   resources :tarifs
 

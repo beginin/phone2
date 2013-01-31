@@ -1,0 +1,44 @@
+<%= form_for(@userlog) do |f| %>
+  <% if @userlog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@userlog.errors.count, "error") %> prohibited this userlog from being saved:</h2>
+
+      <ul>
+      <% @userlog.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+    <%= @user.sname %>
+    <%= @user.fname %>
+    <%= @user.mname %>
+  </div>
+  <div class="field">
+    <%= f.label :cfu_id %><br />
+    <%= f.collection_select(:cfu_id, Cfu.all, :id, :namecfu) %>
+  </div>
+  <div class="field">
+    <%= f.label :shedule_id %><br />
+    <%= f.collection_select(:sumlimit_id, Sumlimit.all, :id, :namelimit) %>
+  </div>
+  <div class="field">
+    <%= f.label :sumlimit_id %><br />
+    <%= f.collection_select(:sumlimit_id, Sumlimit.all, :id, :namelimit) %>
+  </div>
+  <div class="field">
+    <%= f.label :datestart %><br />
+    <%= f.datetime_select :datestart %>
+  </div>
+  <div class="field">
+    <%= f.label :datestop %><br />
+    <%= f.datetime_select :datestop %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
