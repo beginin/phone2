@@ -23,8 +23,8 @@
     <%= f.collection_select(:cfu_id, Cfu.all, :id, :namecfu) %>
   </div>
   <div class="field">
-    <%= f.label :shedule_id %><br />
-    <%= f.collection_select(:sumlimit_id, Sumlimit.all, :id, :namelimit) %>
+    <%= f.label :schedule_id %><br />
+    <%= f.collection_select(:shedule_id, Schedule.all, :id, :timein) %>
   </div>
   <div class="field">
     <%= f.label :sumlimit_id %><br />
