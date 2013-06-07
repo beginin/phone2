@@ -17,7 +17,7 @@ development:
   encoding: unicode
   database: phone2_development
   pool: 5
-  username: postgres
+  username: phone
   password: password
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -43,7 +43,7 @@ test:
   encoding: unicode
   database: phone2_test
   pool: 5
-  username: postgres
+  username: phone
   password: password
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -66,7 +66,7 @@ production:
   encoding: unicode
   database: phone2_production
   pool: 5
-  username: postgres
+  username: phone
   password: password
 
   # Connect on a TCP socket. Omitted by default since the client uses a

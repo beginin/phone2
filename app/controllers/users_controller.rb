@@ -25,6 +25,7 @@ class UsersController < ApplicationController
   # GET /users/new.json
   def new
     @user = User.new
+    @user.usrlog.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +36,12 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    @userlog = @user.userlog.new
+    
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @user }
+    end
   end
 
   # POST /users
@@ -59,6 +66,14 @@ class UsersController < ApplicationController
   # PUT /users/1.json
   def update
     @user = User.find(params[:id])
+    userlog = @user.userlog.new
+    userlog.update_attributes(params[:userlog]) 
+    #timenow = Time.now()
+    #userloglast = @user.userlog.last 
+    #userloglast.datestop = timenow
+
+    #Phone2::Application::config.timeinfinity
+
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
@@ -81,7 +96,7 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url }
       format.json { head :no_content }
     end
-  end
+  end               
   
   def updateproporties
     @user = User.find(params[:id])

@@ -58,5 +58,7 @@ module Phone2
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.timeinfinity =  Time.parse("10-10-2050")
   end
 end
