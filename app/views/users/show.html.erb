@@ -15,6 +15,23 @@
   <%= @user.mname %>
 </p>
 
+<p>
+  <b>Cfu:</b>
+  <%= @user.userlog.last.cfu.namecfu %>
+</p>
+
+<p>
+  <b>Schedule:</b>
+  <%= @user.userlog.last.schedule.timein.to_s %>
+</p>
+
+<p>
+  <b>Sumlimit</b>
+  <%= @user.userlog.last.sumlimit.namelimit %>
+</p>
+
+
+
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

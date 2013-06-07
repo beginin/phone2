@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
 
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
@@ -25,7 +26,7 @@ class UsersController < ApplicationController
   # GET /users/new.json
   def new
     @user = User.new
-    @user.usrlog.build
+    @userlog = @user.userlog.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -48,6 +49,9 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
+    @userlog=@user.userlog.new(params[:userlog])
+    @userlog.datestart = Time.zone.now()
+    @userlog.datestop = Phone2::Application::config.timeinfinity
 
     
 
@@ -66,7 +70,13 @@ class UsersController < ApplicationController
   # PUT /users/1.json
   def update
     @user = User.find(params[:id])
+    timenow = Time.now()
+    userloglast = @user.userlog.last 
+    userloglast.datestop = timenow
+    userloglast.save
     userlog = @user.userlog.new
+    userlog.datestart=timenow + 1
+    userlog.datestop = Phone2::Application::config.timeinfinity
     userlog.update_attributes(params[:userlog]) 
     #timenow = Time.now()
     #userloglast = @user.userlog.last 

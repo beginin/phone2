@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(:version => 20130130084555) do
   create_table "userlogs", :force => true do |t|
     t.integer  "user_id"
     t.integer  "cfu_id"
-    t.integer  "shedule_id"
+    t.integer  "schedule_id"
     t.integer  "sumlimit_id"
     t.datetime "datestart"
     t.datetime "datestop"
