@@ -37,6 +37,8 @@ class SimnumlogsController < ApplicationController
     @simnumlog = Simnumlog.find(params[:id])
   end
 
+
+
   # POST /simnumlogs
   # POST /simnumlogs.json
   def create

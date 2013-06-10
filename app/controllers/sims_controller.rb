@@ -25,6 +25,7 @@ class SimsController < ApplicationController
   # GET /sims/new.json
   def new
     @sim = Sim.new
+    @sim.simnumlog.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,6 +37,22 @@ class SimsController < ApplicationController
   def edit
     @sim = Sim.find(params[:id])
   end
+
+
+  def connect
+    @sim = Sim.find(params[:id])
+    #@simnumlog = @sim.simnumlog.new
+    if @sim.isfree? == false
+      respond_to do |format|
+        format.html { render action: "show" }
+        format.json { render json: @sim.errors, status: :unprocessable_entity }
+      end
+    else
+     @simnumlog = @sim.simnumlog.new
+    end
+  end
+
+
 
   # POST /sims
   # POST /sims.json

@@ -22,7 +22,11 @@ Phone2::Application.routes.draw do
 
   resources :simnumlogs
 
-  resources :sims
+  #resources :sims
+
+  resources :sims do
+    get 'connect', :on => :member
+  end
 
   resources :tnumbers
 
