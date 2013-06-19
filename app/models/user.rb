@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :fname, :mname, :sname
   has_many :userlog
+  has_many :simlog
   #accepts_nested_attributes_for :userlog
   validates :fname, :mname, :sname , :presence => true
   

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130130084555) do
+ActiveRecord::Schema.define(:version => 20130619091105) do
 
   create_table "cfus", :force => true do |t|
     t.string   "namecfu"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(:version => 20130130084555) do
   create_table "schedules", :force => true do |t|
     t.time     "timein"
     t.time     "timeout"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "simlogs", :force => true do |t|
+    t.integer  "sim_id"
+    t.integer  "user_id"
+    t.integer  "type"
+    t.datetime "datestart"
+    t.datetime "datestop"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
