@@ -26,6 +26,7 @@ Phone2::Application.routes.draw do
 
   resources :sims do
     get 'connect', :on => :member
+    get 'disconnect', :on => :member
   end
 
   resources :tnumbers

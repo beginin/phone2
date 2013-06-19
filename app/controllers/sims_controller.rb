@@ -49,9 +49,29 @@ class SimsController < ApplicationController
       end
     else
      @simnumlog = @sim.simnumlog.new
+     @simnumlog.datestop = Phone2::Application::config.timeinfinity
     end
   end
 
+  def disconnect
+    @sim = Sim.find(params[:id])
+    #@simnumlog = @sim.simnumlog.new
+    if @sim.isfree?
+      respond_to do |format|
+        format.html { render action: "show" }
+        format.json { render json: @sim.errors, status: :unprocessable_entity }
+      end
+    else
+     @simnumlog = @sim.simnumlog.last
+     @simnumlog.datestop = Time.now()
+     @simnumlog.save
+    end
+
+    respond_to do |format|
+      format.html { redirect_to sims_url }
+      format.json { head :no_content }
+    end
+  end
 
 
   # POST /sims
@@ -74,6 +94,16 @@ class SimsController < ApplicationController
   # PUT /sims/1.json
   def update
     @sim = Sim.find(params[:id])
+    timenow = Time.now()
+    if @sim.simnumlog.last.nil?  == false
+      simnumloglast = @sim.simnumlog.last
+      simnumloglast.datestop = timenow
+      simnumloglast.save
+    end
+    simnumlog = @sim.simnumlog.new
+    simnumlog.datestart = timenow + 1
+    simnumlog.datestop = Phone2::Application::config.timeinfinity
+    simnumlog.update_attributes(params[:simnumlog])
 
     respond_to do |format|
       if @sim.update_attributes(params[:sim])

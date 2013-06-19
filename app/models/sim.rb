@@ -19,7 +19,8 @@ class Sim < ActiveRecord::Base
   end
 
   def isfree?
-    (Simnumlog.where("datestop > current_timestamp").find(self.id) rescue true)  == true ? true : false
+    self.simnumlog.where("datestop > current_timestamp").last.nil?
+    #(Simnumlog.where("datestop > current_timestamp").find(self.id) rescue true)  == true ? true : false
 
   end
 

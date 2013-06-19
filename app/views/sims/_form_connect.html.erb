@@ -1,10 +1,10 @@
-<%= form_for(@simnumlog) do |f| %>
-  <% if @simnumlog.errors.any? %>
+<%= form_for(@sim) do |fu| %>
+  <% if @sim.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@simnumlog.errors.count, "error") %> prohibited this simnumlog from being saved:</h2>
+      <h2><%= pluralize(@sim.errors.count, "error") %> prohibited this simnumlog from being saved:</h2>
 
       <ul>
-      <% @simnumlog.errors.full_messages.each do |msg| %>
+      <% @sim.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -16,20 +16,23 @@
     <%= @sim.sirealnumber %><br />
   </div>
 
-  <div class="field">
-    <%= f.label :tnumber_id %><br />
-    <%= f.collection_select(:tnumber_id,  Tnumber.where(:id =>Tnumber.freetnumbers_id), :id, :voicenumber) %>
-  </div>
+<%= fields_for @simnumlog do |f| %>
+    <div class="field">
+      <%= f.label :tnumber_id %><br />
+      <%= f.collection_select(:tnumber_id,  Tnumber.where(:id =>Tnumber.freetnumbers_id), :id, :voicenumber) %>
+    </div>
 
-  <div class="field">
-    <%= f.label :datestart %><br />
-    <%= f.datetime_select :datestart %>
-  </div>
-  <div class="field">
-    <%= f.label :datestop %><br />
-    <%= f.datetime_select :datestop %>
-  </div>
+    <div class="field">
+      <%= f.label :datestart %><br />
+      <%= f.datetime_select :datestart %>
+    </div>
+    <div class="field">
+      <%= f.label :datestop %><br />
+      <%= f.datetime_select :datestop %>
+    </div>
+    <% end %>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= fu.submit %>
   </div>
 <% end %>
