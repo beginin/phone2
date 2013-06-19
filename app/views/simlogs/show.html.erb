@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Sim:</b>
+  <%= @simlog.sim_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @simlog.user_id %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @simlog.type %>
+</p>
+
+<p>
+  <b>Datestart:</b>
+  <%= @simlog.datestart %>
+</p>
+
+<p>
+  <b>Datestop:</b>
+  <%= @simlog.datestop %>
+</p>
+
+
+<%= link_to 'Edit', edit_simlog_path(@simlog) %> |
+<%= link_to 'Back', simlogs_path %>

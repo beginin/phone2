@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  sim_id: 1
+  user_id: 1
+  type: 1
+  datestart: 2013-06-19 17:11:05
+  datestop: 2013-06-19 17:11:05
+
+two:
+  sim_id: 1
+  user_id: 1
+  type: 1
+  datestart: 2013-06-19 17:11:05
+  datestop: 2013-06-19 17:11:05
