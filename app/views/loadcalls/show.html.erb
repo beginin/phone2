@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Date:</b>
+  <%= @loadcall.date %>
+</p>
+
+<p>
+  <b>Admin:</b>
+  <%= @loadcall.admin %>
+</p>
+
+
+<%= link_to 'Edit', edit_loadcall_path(@loadcall) %> |
+<%= link_to 'Back', loadcalls_path %>

@@ -1,4 +1,10 @@
 Phone2::Application.routes.draw do
+  resources :loadcalls
+
+
+  resources :holidays
+
+
   resources :descriptioncalls
 
 
