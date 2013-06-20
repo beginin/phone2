@@ -1,5 +1,10 @@
 Phone2::Application.routes.draw do
-  resources :calllogs
+  #resources :calllogs
+
+  resources :calllogs do
+    get 'upload' => 'calllogs#upload', :on => :collection
+    post 'upload' => 'calllogs#uploadcvs', :on => :collection
+  end
 
 
   resources :loadcalls
@@ -18,6 +23,8 @@ Phone2::Application.routes.draw do
 
 
   resources :simlogs
+
+
 
 
   resources :userlogs

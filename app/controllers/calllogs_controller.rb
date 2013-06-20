@@ -2,7 +2,7 @@ class CalllogsController < ApplicationController
   # GET /calllogs
   # GET /calllogs.json
   def index
-    @calllogs = Calllog.all
+    @calllogs = Calllog.last(100)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -80,4 +80,15 @@ class CalllogsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def upload
+
+  end
+
+  def uploadcvs
+    #post load
+    Calllog.save(params[:upload])
+  end
+
+
 end
