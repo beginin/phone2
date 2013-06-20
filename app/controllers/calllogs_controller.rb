@@ -88,6 +88,11 @@ class CalllogsController < ApplicationController
   def uploadcvs
     #post load
     Calllog.save(params[:upload])
+    
+    respond_to do |format|
+      format.html { redirect_to calllogs_url }
+      format.json { head :no_content }
+    end
   end
 
 

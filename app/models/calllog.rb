@@ -19,6 +19,7 @@ class Calllog < ActiveRecord::Base
 
     csvarray.delete(csvarray.first)
     load=Loadcall.create(:admin => "Admin") 
+    #books = []
     csvarray.each do |row|
       n=Calllog.new
       n.tnumber = row[2]
@@ -34,7 +35,9 @@ class Calllog < ActiveRecord::Base
       n.valuemb = row[14]
       n.load_id = load.id
       n.save
+      #books << n
     end
+    #Calllog.import books
   	
   end
 

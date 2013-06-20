@@ -34,6 +34,7 @@ gem 'therubyracer'
 gem 'charlock_holmes'
 gem 'fastercsv'
 gem 'russian'
+gem "activerecord-import"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
