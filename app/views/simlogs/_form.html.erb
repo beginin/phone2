@@ -13,15 +13,11 @@
 
   <div class="field">
     <%= f.label :sim_id %><br />
-    <%= f.number_field :sim_id %>
+    <%= f.collection_select(:sim_id, Sim.where(:id =>Sim.notusesim_id), :id, :sirealnumber )  %>
   </div>
   <div class="field">
     <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :type %><br />
-    <%= f.number_field :type %>
+    <%= f.collection_select(:user_id, User.all, :id, :fullname ) %>
   </div>
   <div class="field">
     <%= f.label :datestart %><br />

@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(:version => 20130619091105) do
   create_table "simlogs", :force => true do |t|
     t.integer  "sim_id"
     t.integer  "user_id"
-    t.integer  "type"
     t.datetime "datestart"
     t.datetime "datestop"
     t.datetime "created_at", :null => false

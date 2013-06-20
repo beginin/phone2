@@ -25,6 +25,7 @@ class SimlogsController < ApplicationController
   # GET /simlogs/new.json
   def new
     @simlog = Simlog.new
+    @simlog.datestop = Phone2::Application::config.timeinfinity
 
     respond_to do |format|
       format.html # new.html.erb
