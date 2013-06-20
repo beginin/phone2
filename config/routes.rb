@@ -1,4 +1,13 @@
 Phone2::Application.routes.draw do
+  resources :descriptioncalls
+
+
+  resources :typeconnects
+
+
+  resources :typecalls
+
+
   resources :simlogs
 
 

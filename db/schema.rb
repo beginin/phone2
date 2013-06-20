@@ -11,10 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130619091105) do
+ActiveRecord::Schema.define(:version => 20130620042034) do
 
   create_table "cfus", :force => true do |t|
     t.string   "namecfu"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "descriptioncalls", :force => true do |t|
+    t.string   "name"
+    t.boolean  "fin"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -73,6 +80,18 @@ ActiveRecord::Schema.define(:version => 20130619091105) do
     t.integer  "tarif_id"
     t.datetime "created_at",               :null => false
     t.datetime "updated_at",               :null => false
+  end
+
+  create_table "typecalls", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "typeconnects", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "userlogs", :force => true do |t|

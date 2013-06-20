@@ -1,0 +1,25 @@
+<%= form_for(@descriptioncall) do |f| %>
+  <% if @descriptioncall.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@descriptioncall.errors.count, "error") %> prohibited this descriptioncall from being saved:</h2>
+
+      <ul>
+      <% @descriptioncall.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :fin %><br />
+    <%= f.text_field :fin %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

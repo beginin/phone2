@@ -1,0 +1,25 @@
+<h1>Listing descriptioncalls</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Fin</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @descriptioncalls.each do |descriptioncall| %>
+  <tr>
+    <td><%= descriptioncall.name %></td>
+    <td><%= descriptioncall.fin %></td>
+    <td><%= link_to 'Show', descriptioncall %></td>
+    <td><%= link_to 'Edit', edit_descriptioncall_path(descriptioncall) %></td>
+    <td><%= link_to 'Destroy', descriptioncall, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Descriptioncall', new_descriptioncall_path %>
