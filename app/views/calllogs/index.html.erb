@@ -1,0 +1,45 @@
+<h1>Listing calllogs</h1>
+
+<table>
+  <tr>
+    <th>Tnumber</th>
+    <th>Load</th>
+    <th>Date</th>
+    <th>Duration</th>
+    <th>Coast</th>
+    <th>Tnumber out</th>
+    <th>Tnumber in</th>
+    <th>Typecall</th>
+    <th>Descriptioncall</th>
+    <th>Typeconnect</th>
+    <th></th>
+    <th>Valuemb</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @calllogs.each do |calllog| %>
+  <tr>
+    <td><%= calllog.tnumber %></td>
+    <td><%= calllog.load_id %></td>
+    <td><%= calllog.date %></td>
+    <td><%= calllog.duration %></td>
+    <td><%= calllog.coast %></td>
+    <td><%= calllog.tnumber_out %></td>
+    <td><%= calllog.tnumber_in %></td>
+    <td><%= calllog.typecall_id %></td>
+    <td><%= calllog.descriptioncall_id %></td>
+    <td><%= calllog.typeconnect_id %></td>
+    <td><%= calllog. %></td>
+    <td><%= calllog.valuemb %></td>
+    <td><%= link_to 'Show', calllog %></td>
+    <td><%= link_to 'Edit', edit_calllog_path(calllog) %></td>
+    <td><%= link_to 'Destroy', calllog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Calllog', new_calllog_path %>

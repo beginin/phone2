@@ -1,0 +1,65 @@
+<%= form_for(@calllog) do |f| %>
+  <% if @calllog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@calllog.errors.count, "error") %> prohibited this calllog from being saved:</h2>
+
+      <ul>
+      <% @calllog.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tnumber %><br />
+    <%= f.number_field :tnumber %>
+  </div>
+  <div class="field">
+    <%= f.label :load_id %><br />
+    <%= f.number_field :load_id %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.datetime_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :duration %><br />
+    <%= f.time_select :duration %>
+  </div>
+  <div class="field">
+    <%= f.label :coast %><br />
+    <%= f.text_field :coast %>
+  </div>
+  <div class="field">
+    <%= f.label :tnumber_out %><br />
+    <%= f.number_field :tnumber_out %>
+  </div>
+  <div class="field">
+    <%= f.label :tnumber_in %><br />
+    <%= f.number_field :tnumber_in %>
+  </div>
+  <div class="field">
+    <%= f.label :typecall_id %><br />
+    <%= f.number_field :typecall_id %>
+  </div>
+  <div class="field">
+    <%= f.label :descriptioncall_id %><br />
+    <%= f.text_field :descriptioncall_id %>
+  </div>
+  <div class="field">
+    <%= f.label :typeconnect_id %><br />
+    <%= f.number_field :typeconnect_id %>
+  </div>
+  <div class="field">
+    <%= f.label : %><br />
+    <%= f.text_field : %>
+  </div>
+  <div class="field">
+    <%= f.label :valuemb %><br />
+    <%= f.text_field :valuemb %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

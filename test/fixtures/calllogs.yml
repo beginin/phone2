@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  tnumber: 1
+  load_id: 1
+  date: 2013-06-20 12:40:51
+  duration: 2013-06-20 12:40:51
+  coast: 9.99
+  tnumber_out: 1
+  tnumber_in: 1
+  typecall_id: 1
+  descriptioncall_id: 
+  typeconnect_id: 1
+  : 
+  valuemb: 9.99
+
+two:
+  tnumber: 1
+  load_id: 1
+  date: 2013-06-20 12:40:51
+  duration: 2013-06-20 12:40:51
+  coast: 9.99
+  tnumber_out: 1
+  tnumber_in: 1
+  typecall_id: 1
+  descriptioncall_id: 
+  typeconnect_id: 1
+  : 
+  valuemb: 9.99

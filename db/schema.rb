@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130620042849) do
+ActiveRecord::Schema.define(:version => 20130620044051) do
+
+  create_table "calllogs", :force => true do |t|
+    t.integer  "tnumber",            :limit => 8
+    t.integer  "load_id"
+    t.datetime "date"
+    t.time     "duration"
+    t.decimal  "coast",                           :precision => 15, :scale => 4
+    t.integer  "tnumber_out",        :limit => 8
+    t.integer  "tnumber_in",         :limit => 8
+    t.integer  "typecall_id"
+    t.integer  "descriptioncall_id"
+    t.integer  "typeconnect_id"
+    t.integer  "base"
+    t.decimal  "valuemb",                         :precision => 15, :scale => 4
+    t.datetime "created_at",                                                     :null => false
+    t.datetime "updated_at",                                                     :null => false
+  end
 
   create_table "cfus", :force => true do |t|
     t.string   "namecfu"
