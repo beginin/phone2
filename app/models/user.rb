@@ -13,4 +13,17 @@ class User < ActiveRecord::Base
   #	userlog.build(attributes)
   #end
 
+  def owensims_id
+    a=self.simlog.select(:sim_id).where("datestop  > current_timestamp ")  
+    b=Array.new
+    a.each do |d|
+      b << d.sim_id
+    end
+    b
+  end
+
+  def owensims
+    self.simlog.where("datestop  > current_timestamp ")
+  end
+
 end

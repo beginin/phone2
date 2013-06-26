@@ -40,6 +40,15 @@ class Sim < ActiveRecord::Base
     sl_id - sa_id
   end
 
+  def currentvoicenumber
+    a = self.simnumlog.where("datestop > current_timestamp").last
+    a.nil? ? nil : a.tnumber.voicenumber
+  end
+
+  def sirealnumber_with_currentvicenumber
+    self.currentvoicenumber.to_s  + " " + self.sirealnumber.to_s
+  end
+
 
 
 

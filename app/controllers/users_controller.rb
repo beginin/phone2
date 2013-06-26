@@ -50,10 +50,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     @userlog=@user.userlog.new(params[:userlog])
-    @userlog.datestart = Time.zone.now()
+    @userlog.datestart = Phone2::Application::config.timestart
     @userlog.datestop = Phone2::Application::config.timeinfinity
 
-    
 
     respond_to do |format|
       if @user.save
@@ -117,4 +116,40 @@ class UsersController < ApplicationController
       format.json { render json: @user }
     end
   end
+
+  def getsim
+    @user = User.find(params[:id])   
+    @simlog = @user.simlog.last
+    @simlog.datestop = Time.zone.now
+  end
+
+  def getsimpost
+    @user = User.find(params[:id])   
+    @simlog = @user.simlog.last
+    @simlog.update_attributes(params[:simlog])
+    respond_to do |format|
+      format.html { redirect_to @user, notice: 'User was successfully updated.' }
+      format.json { head :no_content }
+    end
+  end
+
+
+  def putsim 
+     @user = User.find(params[:id])
+     @simlog = @user.simlog.new
+     @simlog.datestart = Time.zone.now
+  end
+
+  def putsimpost
+    @user = User.find(params[:id])
+    @simlog = @user.simlog.new
+    @simlog.datestop = Phone2::Application::config.timeinfinity
+    @simlog.update_attributes(params[:simlog])
+    respond_to do |format|
+      format.html { redirect_to @user, notice: 'User was successfully updated.' }
+      format.json { head :no_content }
+    end
+  end
+
+
 end

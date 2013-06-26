@@ -8,6 +8,7 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
 
 <% @users.each do |user| %>
@@ -15,6 +16,11 @@
     <td><%= user.sname %></td>
     <td><%= user.fname %></td>
     <td><%= user.mname %></td>
+    <td><%= user.userlog.last.cfu.namecfu %></td>
+    <td><%= user.userlog.last.schedule.timein %></td>
+    <td><%= user.userlog.last.sumlimit.namelimit %></td>
+    <td><%= link_to 'Выдать sim', putsim_user_path(user) %></td>
+    <td><%= link_to 'Забрать sim', getsim_user_path(user) %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>

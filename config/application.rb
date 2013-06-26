@@ -60,5 +60,6 @@ module Phone2
     config.assets.version = '1.0'
 
     config.timeinfinity =  Time.parse("10-10-2050")
+    config.timestart =  Time.parse("10-10-2000")
   end
 end

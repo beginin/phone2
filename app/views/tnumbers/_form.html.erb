@@ -33,7 +33,7 @@
   </div>
   <div class="field">
     <%= f.label :tarif_id %><br />
-    <%= f.number_field :tarif_id %>
+    <%= f.collection_select(:tarif_id, Tarif.all, :id, :name) %>
   </div>
   <div class="actions">
     <%= f.submit %>

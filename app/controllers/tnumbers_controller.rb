@@ -25,6 +25,8 @@ class TnumbersController < ApplicationController
   # GET /tnumbers/new.json
   def new
     @tnumber = Tnumber.new
+    @tnumber.datein = Phone2::Application::config.timestart
+    @tnumber.dateout = Phone2::Application::config.timeinfinity
 
     respond_to do |format|
       format.html # new.html.erb
@@ -79,5 +81,19 @@ class TnumbersController < ApplicationController
       format.html { redirect_to tnumbers_url }
       format.json { head :no_content }
     end
+  end
+
+  def upload
+    
+  end
+
+  def uploadcsv
+     Tnumber.uploadcsv(params[:upload])
+
+     respond_to do |format|
+      format.html { redirect_to tnumbers_url }
+      format.json { head :no_content }
+     end
+    
   end
 end

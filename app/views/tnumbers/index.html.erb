@@ -1,5 +1,8 @@
 <h1>Listing tnumbers</h1>
 
+<%= link_to 'Загрузить', upload_tnumbers_path %>
+
+
 <table>
   <tr>
     <th>Voicenumber</th>
@@ -20,7 +23,7 @@
     <td><%= tnumber.datein %></td>
     <td><%= tnumber.dateout %></td>
     <td><%= tnumber.block %></td>
-    <td><%= tnumber.tarif_id %></td>
+    <td><%= tnumber.tarif_text %></td>
     <td><%= link_to 'Show', tnumber %></td>
     <td><%= link_to 'Edit', edit_tnumber_path(tnumber) %></td>
     <td><%= link_to 'Destroy', tnumber, method: :delete, data: { confirm: 'Are you sure?' } %></td>

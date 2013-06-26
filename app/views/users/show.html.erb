@@ -30,6 +30,34 @@
   <%= @user.userlog.last.sumlimit.namelimit %>
 </p>
 
+<p>
+  <b>Сим карты </b>
+  <% @user.owensims.each do |u| %>
+  <p><%= u.sim.sirealnumber_with_currentvicenumber %></p>
+  <% end %>
+</p>
+
+
+
+<table>
+  <tr>
+    <th>Начало</th>
+    <th>Конец</th>
+    <th>Отдел</th>
+    <th>Расписание</th>
+    <th>Лимит</th>
+  </tr>
+
+<% @user.userlog.each do |u| %>
+  <tr>
+    <td><%= u.datestart %></td>
+    <td><%= u.datestop %></td>
+    <td><%= u.cfu.namecfu %></td>
+    <td><%= u.schedule.timein %></td>
+    <td><%= u.sumlimit.namelimit %></td>
+  </tr>
+<% end %>
+</table>
 
 
 

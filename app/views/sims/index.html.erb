@@ -9,12 +9,14 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
     <th>Free?</th>
   </tr>
 
 <% @sims.each do |sim| %>
   <tr>
     <td><%= sim.sirealnumber %></td>
+    <td><%= sim.currentvoicenumber %></td>
     <td><%= link_to 'Connect', connect_sim_path(sim) %></td>
     <td><%= link_to 'Disconnect', disconnect_sim_path(sim) %></td>
     <td><%= link_to 'Show', sim %></td>

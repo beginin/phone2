@@ -30,7 +30,13 @@ Phone2::Application.routes.draw do
   resources :userlogs
 
 
-  resources :users
+  resources :users do
+    get 'getsim', :on => :member
+    get 'putsim', :on => :member
+    put 'getsim' => 'users#getsimpost', :on => :member
+    put 'putsim' => 'users#putsimpost', :on => :member
+  end
+
   match 'users/:id/updateproporties' => 'users#updateproporties'
 
   resources :sumlimits
@@ -57,7 +63,11 @@ Phone2::Application.routes.draw do
     get 'disconnect', :on => :member
   end
 
-  resources :tnumbers
+
+  resources :tnumbers do
+    get 'upload' => 'tnumbers#upload', :on => :collection
+    post 'upload' => 'tnumbers#uploadcsv', :on => :collection
+  end
 
   resources :tarifs
 

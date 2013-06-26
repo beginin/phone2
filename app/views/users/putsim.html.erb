@@ -1,0 +1,32 @@
+<%= form_for(@user,url: {action: "putsim"}) do |fu| %>
+  <% if @simlog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@simlog.errors.count, "error") %> prohibited this simlog from being saved:</h2>
+
+      <ul>
+      <% @simlog.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= @user.fullname %>
+
+
+  <%= fields_for @simlog do |f| %>
+
+    <div class="field">
+      <%= f.label :sim_id %><br />
+      <%= f.collection_select(:sim_id, Sim.where(:id =>Sim.notusesim_id), :id, :sirealnumber_with_currentvicenumber )  %>
+    </div>
+    <div class="field">
+      <%= f.label :datestart %><br />
+      <%= f.datetime_select :datestart %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= fu.submit %>
+  </div>
+<% end %>
