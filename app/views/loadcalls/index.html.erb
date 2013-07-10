@@ -13,6 +13,7 @@
   <tr>
     <td><%= loadcall.date %></td>
     <td><%= loadcall.admin %></td>
+    <td><%= link_to 'Отчет 1', reports_report1_path(loadcall) %></td>
     <td><%= link_to 'Show', loadcall %></td>
     <td><%= link_to 'Edit', edit_loadcall_path(loadcall) %></td>
     <td><%= link_to 'Destroy', loadcall, method: :delete, data: { confirm: 'Are you sure?' } %></td>

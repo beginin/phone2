@@ -1,0 +1,31 @@
+<h1>Report#showload</h1>
+<table>
+  <tr>
+    <th>tnumber</th>
+    <th>tarifname</th>
+    <th>totalsum</th>
+    <th>uprsum</th>
+    <th>finsum</th>
+    <th>secondname</th>
+    <th>firstname</th>
+    <th>midlename</th>
+    <th>namecfu</th>
+    <th>money</th>
+    <th>datein</th>
+    <th>dateout</th>
+    <th>timein</th>
+    <th>timeout</th>
+  </tr>
+
+<% @report1.each do |r| %>
+  <tr>
+    <td><%= r["tnumber"] %></td>
+    <td><%= r["sum"] %></td>
+    <td><%= r["totalsum"] %></td>
+    <td><%= User.find(r["user_id"]).fullname if r["user_id"].present? %></td>
+      
+  </tr>
+<% end %>
+</table>
+
+<br />

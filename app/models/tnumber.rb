@@ -1,6 +1,7 @@
 class Tnumber < ActiveRecord::Base
   attr_accessible :block, :datein, :dateout, :sortnumber, :tarif_id, :voicenumber, :tarif_text
   belongs_to :tarif
+  has_many :simnumlog
   
   validates :voicenumber, :presence => true, 
                           :length => { :is => 10 }, 
@@ -48,6 +49,10 @@ class Tnumber < ActiveRecord::Base
 
   def tarif_text=(name)
     self.tarif = Tarif.find_or_create_by_name(name) if name.present?
+  end
+
+  def current_user
+    self.simnumlog.last.sim.simlog.last.user rescue nil
   end
 
 end

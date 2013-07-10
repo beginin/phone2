@@ -35,6 +35,8 @@ Phone2::Application.routes.draw do
     get 'putsim', :on => :member
     put 'getsim' => 'users#getsimpost', :on => :member
     put 'putsim' => 'users#putsimpost', :on => :member
+    get 'upload' => 'users#upload', :on => :collection
+    post 'upload' => 'users#uploadcsv', :on => :collection
   end
 
   match 'users/:id/updateproporties' => 'users#updateproporties'
@@ -70,6 +72,9 @@ Phone2::Application.routes.draw do
   end
 
   resources :tarifs
+
+  get '/reports/report1/:id', to: 'reports#report1', :as => :reports_report1
+ 
 
 
   # The priority is based upon order of creation:

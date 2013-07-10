@@ -7,8 +7,7 @@
   <tr>
     <th>Voicenumber</th>
     <th>Sortnumber</th>
-    <th>Datein</th>
-    <th>Dateout</th>
+    <th></th>
     <th>Block</th>
     <th>Tarif</th>
     <th></th>
@@ -20,8 +19,7 @@
   <tr>
     <td><%= tnumber.voicenumber %></td>
     <td><%= tnumber.sortnumber %></td>
-    <td><%= tnumber.datein %></td>
-    <td><%= tnumber.dateout %></td>
+    <td><%= tnumber.current_user.fullname if tnumber.current_user.present? %></td>
     <td><%= tnumber.block %></td>
     <td><%= tnumber.tarif_text %></td>
     <td><%= link_to 'Show', tnumber %></td>

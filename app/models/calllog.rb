@@ -18,7 +18,7 @@ class Calllog < ActiveRecord::Base
     csvarray = CSV.parse(utf8_encoded_content, :col_sep => ';')
 
     csvarray.delete(csvarray.first)
-    load=Loadcall.create(:admin => "Admin") 
+    load=Loadcall.create(:admin => "Admin", :date => Time.zone.now) 
     #books = []
     csvarray.each do |row|
       n=Calllog.new

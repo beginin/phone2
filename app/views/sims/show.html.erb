@@ -5,6 +5,9 @@
   <%= @sim.sirealnumber %>
 </p>
 
+<p><%= link_to 'Connect', connect_sim_path(@sim) %></p>
+<p><%= link_to 'Disconnect', disconnect_sim_path(@sim) %></p>
+
 
 <%= link_to 'Edit', edit_sim_path(@sim) %> |
 <%= link_to 'Back', sims_path %>

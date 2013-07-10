@@ -118,9 +118,16 @@ class UsersController < ApplicationController
   end
 
   def getsim
-    @user = User.find(params[:id])   
-    @simlog = @user.simlog.last
-    @simlog.datestop = Time.zone.now
+    @user = User.find(params[:id])
+    @simlog = @user.simlog.last   
+    if @simlog.nil?
+      respond_to do |format|
+        format.html { redirect_to @user, notice: 'Пользователь не имеет сим карт' }
+        format.json { head :no_content }
+      end
+    else
+      @simlog.datestop = Time.zone.now
+    end
   end
 
   def getsimpost
@@ -149,6 +156,20 @@ class UsersController < ApplicationController
       format.html { redirect_to @user, notice: 'User was successfully updated.' }
       format.json { head :no_content }
     end
+  end
+
+  def upload
+    
+  end
+
+  def uploadcsv
+     User.uploadcsv(params[:upload])
+
+     #respond_to do |format|
+     # format.html { redirect_to users_url }
+     # format.json { head :no_content }
+     #end
+    
   end
 
 
