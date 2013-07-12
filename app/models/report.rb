@@ -19,6 +19,37 @@ class Report < ActiveRecord::Base
 			WHERE calllogs.load_id =  " + id + "
 			GROUP BY    simlogs.user_id ,calllogs.tnumber"
 
+		sql = "WITH fin as(
+			SELECT calllogs.tnumber, SUM(calllogs.coast), simlogs.user_id
+			FROM calllogs 
+			LEFT JOIN tnumbers ON (calllogs.tnumber = tnumbers.voicenumber)
+			LEFT JOIN simnumlogs ON (tnumbers.id = simnumlogs.tnumber_id AND calllogs.date >= simnumlogs.datestart AND calllogs.date < simnumlogs.datestop)
+			LEFT JOIN simlogs ON (simnumlogs.sim_id = simlogs.sim_id AND calllogs.date >= simlogs.datestart AND calllogs.date < simlogs.datestop)
+			LEFT JOIN userlogs ON (simlogs.user_id = userlogs.user_id AND calllogs.date >= userlogs.datestart AND calllogs.date < userlogs.datestop)
+			LEFT JOIN schedules ON (userlogs.schedule_id = schedules.id)
+			WHERE 
+			((calllogs.descriptioncall_id  IN (SELECT id FROM descriptioncalls WHERE fin = 'true'))
+			or date_trunc( 'day',calllogs.date)  IN (SELECT date FROM holidays)
+			or \"time\"(calllogs.date) < schedules.timein
+			or \"time\"(calllogs.date) > schedules.timeout)
+			AND calllogs.load_id =  " + id + "
+			GROUP BY    simlogs.user_id ,calllogs.tnumber),
+			upr as (
+			SELECT calllogs.tnumber, SUM(calllogs.coast), simlogs.user_id
+			FROM calllogs
+			LEFT JOIN tnumbers ON (calllogs.tnumber = tnumbers.voicenumber)
+			LEFT JOIN simnumlogs ON (tnumbers.id = simnumlogs.tnumber_id AND calllogs.date >= simnumlogs.datestart AND calllogs.date < simnumlogs.datestop)
+			LEFT JOIN simlogs ON (simnumlogs.sim_id = simlogs.sim_id AND calllogs.date >= simlogs.datestart AND calllogs.date < simlogs.datestop)
+			LEFT JOIN userlogs ON (simlogs.user_id = userlogs.user_id AND calllogs.date >= userlogs.datestart AND calllogs.date < userlogs.datestop)
+			WHERE calllogs.load_id =  " + id + "
+			GROUP BY  simlogs.user_id ,calllogs.tnumber
+			)
+
+			Select upr.tnumber, upr.user_id, upr.sum * 1.18 as totalsum , fin.sum * 1.18 as finsum 
+			From upr
+			LEFT JOIN fin  ON (upr.user_id=fin.user_id AND upr.tnumber=fin.tnumber)
+			ORDER BY upr.tnumber"
+
 		self.find_by_sql(sql)
 		mass = ActiveRecord::Base.connection.select_all( sql )
 
