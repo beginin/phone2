@@ -127,4 +127,20 @@ class SimsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def upload
+    
+  end
+
+  def uploadcsv
+     Sim.uploadcsv(params[:upload])
+     respond_to do |format|
+      format.html { redirect_to sims_url }
+      format.json { head :no_content }
+     end
+    
+  end
+
+
+
 end

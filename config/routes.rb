@@ -63,6 +63,8 @@ Phone2::Application.routes.draw do
   resources :sims do
     get 'connect', :on => :member
     get 'disconnect', :on => :member
+    get 'upload' => 'sims#upload', :on => :collection
+    post 'upload' => 'sims#uploadcsv', :on => :collection
   end
 
 
