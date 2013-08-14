@@ -35,6 +35,7 @@ Phone2::Application.routes.draw do
     get 'putsim', :on => :member
     put 'getsim' => 'users#getsimpost', :on => :member
     put 'putsim' => 'users#putsimpost', :on => :member
+    get 'application' => 'users#application', :on => :member
     get 'upload' => 'users#upload', :on => :collection
     post 'upload' => 'users#uploadcsv', :on => :collection
   end

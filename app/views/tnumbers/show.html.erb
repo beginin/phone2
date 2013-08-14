@@ -30,6 +30,29 @@
   <%= @tnumber.tarif_id %>
 </p>
 
+<table>
+  <tr>
+    <th>Привязан</th>
+    <th>Отвязан</th>
+    <th>Сим карта</th>
+    <th>Выдана</th>
+    <th>Изьята</th>
+  </tr>
+
+<% @tnumber.simnumlog.each do |u| %>
+  <tr>
+    <td><%= u.datestart %></td>
+    <td><%= u.datestop %></td>
+    <td><%= u.sim.sirealnumber %></td>
+    <% u.sim.getowners(u.datestart,u.datestop).each do |uu| %>
+    <td><%= u.datestart %></td>
+    <td><%= u.datestop %></td>
+    <td><%= uu.user.fullname %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
 
 <%= link_to 'Edit', edit_tnumber_path(@tnumber) %> |
 <%= link_to 'Back', tnumbers_path %>

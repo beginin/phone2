@@ -1,8 +1,8 @@
-<h1>Listing cfus</h1>
+<h1>Отделы</h1>
 
 <table>
   <tr>
-    <th>Namecfu</th>
+    <th>Наименование</th>
     <th></th>
     <th></th>
     <th></th>
@@ -10,14 +10,13 @@
 
 <% @cfus.each do |cfu| %>
   <tr>
-    <td><%= cfu.namecfu %></td>
-    <td><%= link_to 'Show', cfu %></td>
-    <td><%= link_to 'Edit', edit_cfu_path(cfu) %></td>
-    <td><%= link_to 'Destroy', cfu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to cfu.namecfu, cfu %></td>
+    <td><%= link_to 'Редактировать', edit_cfu_path(cfu) %>
+    <%= link_to 'Удалить', cfu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Cfu', new_cfu_path %>
+<%= link_to 'Новый Отдел', new_cfu_path %>

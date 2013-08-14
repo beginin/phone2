@@ -64,6 +64,11 @@ class Sim < ActiveRecord::Base
     end
   end
 
+  def getowners(datestart,datestop)
+    self.simlog.where("datestart <= :end_date and datestop >= :start_date",
+  {start_date: datestart, end_date: datestop})
+  end
+
 
 
 

@@ -1,9 +1,9 @@
-<h1>Listing tarifs</h1>
+<h1>Тарифные планы</h1>
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Description</th>
+    <th>Наименование</th>
+    <th>Описание</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,11 +11,10 @@
 
 <% @tarifs.each do |tarif| %>
   <tr>
-    <td><%= tarif.name %></td>
+    <td><%= link_to tarif.name, tarif %></td>
     <td><%= tarif.description %></td>
-    <td><%= link_to 'Show', tarif %></td>
-    <td><%= link_to 'Edit', edit_tarif_path(tarif) %></td>
-    <td><%= link_to 'Destroy', tarif, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Редактировать', edit_tarif_path(tarif) %></td>
+    <td><%= link_to 'Удалить', tarif, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

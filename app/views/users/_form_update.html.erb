@@ -11,19 +11,19 @@
     </div>
   <% end %>
   <div class="field">
-      <%= fu.label :sname %><br />
+      <%= fu.label "Фамилия" %><br />
       <%= fu.text_field  :sname %>
 
   </div>
 
   <div class="field">
-      <%= fu.label :fname %><br />
+      <%= fu.label "Имя" %><br />
       <%= fu.text_field  :fname %>
 
   </div>
 
   <div class="field">
-      <%= fu.label :mname %><br />
+      <%= fu.label "Отчество" %><br />
       <%= fu.text_field  :mname %>
 
   </div>
@@ -32,15 +32,15 @@
 
 
       <div class="field">
-        <%= f.label :cfu_id %><br />
+        <%= f.label "Отдел" %><br />
         <%= f.collection_select(:cfu_id, Cfu.all, :id, :namecfu) %>
       </div>
       <div class="field">
-        <%= f.label :schedule_id %><br />
-        <%= f.collection_select(:schedule_id, Schedule.all, :id, :timein) %>
+        <%= f.label "Расписание" %><br />
+        <%= f.collection_select(:schedule_id, Schedule.all, :id, :times ) %>
       </div>
       <div class="field">
-        <%= f.label :sumlimit_id %><br />
+        <%= f.label "Денежный лимит" %><br />
         <%= f.collection_select(:sumlimit_id, Sumlimit.all, :id, :namelimit) %>
       </div>
 

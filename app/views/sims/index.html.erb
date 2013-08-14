@@ -1,31 +1,28 @@
-<h1>Listing sims</h1>
+<h1>Сим карты</h1>
 
 <%= link_to 'Загрузить', upload_sims_path %>
 
-<%= link_to 'New Sim', new_sim_path %>
+<%= link_to 'Новая сим карта', new_sim_path %>
 
 <table>
   <tr>
-    <th>Sirealnumber</th>
+    <th>Серильный номер</th>
+    <th>Текущий номер</th>
+    <th>Прикрепить/отключить номер</th>
     <th></th>
     <th></th>
     <th></th>
     <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th>Free?</th>
+    
   </tr>
 
 <% @sims.each do |sim| %>
   <tr>
-    <td><%= sim.sirealnumber %></td>
+    <td><%= link_to sim.sirealnumber, sim %></td>
     <td><%= sim.currentvoicenumber %></td>
-    <td><%= link_to 'Connect', connect_sim_path(sim) %></td>
-    <td><%= link_to 'Disconnect', disconnect_sim_path(sim) %></td>
-    <td><%= link_to 'Show', sim %></td>
-    <td><%= link_to 'Edit', edit_sim_path(sim) %></td>
-    <td><%= link_to 'Destroy', sim, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Прикреить', connect_sim_path(sim) %> <%= link_to 'Открепить', disconnect_sim_path(sim) %> </td>
+    <td><%= link_to 'Редактировать', edit_sim_path(sim) %></td>
+    <td><%= link_to 'Удалить', sim, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <td><%= sim.isfree? %></td>
   </tr>
 <% end %>
@@ -33,4 +30,4 @@
 
 <br />
 
-<%= link_to 'New Sim', new_sim_path %>
+<%= link_to 'Новая сим карта', new_sim_path %>

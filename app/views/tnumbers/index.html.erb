@@ -1,15 +1,15 @@
-<h1>Listing tnumbers</h1>
+<h1>Номера</h1>
 
 <%= link_to 'Загрузить', upload_tnumbers_path %>
 
 
 <table>
   <tr>
-    <th>Voicenumber</th>
-    <th>Sortnumber</th>
-    <th></th>
-    <th>Block</th>
-    <th>Tarif</th>
+    <th>Номер Телефона</th>
+    <th>Городской номер</th>
+    <th>Фамилия Имя Отчество</th>
+    <th>Статус</th>
+    <th>Тариф</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,14 +17,13 @@
 
 <% @tnumbers.each do |tnumber| %>
   <tr>
-    <td><%= tnumber.voicenumber %></td>
+    <td><%= link_to tnumber.voicenumber,  tnumber %></td>
     <td><%= tnumber.sortnumber %></td>
-    <td><%= tnumber.current_user.fullname if tnumber.current_user.present? %></td>
-    <td><%= tnumber.block %></td>
+    <td><%= link_to tnumber.current_user.fullname if tnumber.current_user.present?  %></td>
+    <td><%= tnumber.block == true ? "Заблокирован" : "Активен"  %></td>
     <td><%= tnumber.tarif_text %></td>
-    <td><%= link_to 'Show', tnumber %></td>
-    <td><%= link_to 'Edit', edit_tnumber_path(tnumber) %></td>
-    <td><%= link_to 'Destroy', tnumber, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Изменить', edit_tnumber_path(tnumber) %></td>
+    <td><%= link_to 'Удалить', tnumber, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

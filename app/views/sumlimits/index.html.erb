@@ -1,9 +1,9 @@
-<h1>Listing sumlimits</h1>
+<h1>Дененжные лимиты</h1>
 
 <table>
   <tr>
-    <th>Namelimit</th>
-    <th>Money</th>
+    <th>Название лимита</th>
+    <th>Лимит р.</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,11 +11,10 @@
 
 <% @sumlimits.each do |sumlimit| %>
   <tr>
-    <td><%= sumlimit.namelimit %></td>
+    <td><%= link_to sumlimit.namelimit, sumlimit %></td>
     <td><%= sumlimit.money %></td>
-    <td><%= link_to 'Show', sumlimit %></td>
-    <td><%= link_to 'Edit', edit_sumlimit_path(sumlimit) %></td>
-    <td><%= link_to 'Destroy', sumlimit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Редактировать', edit_sumlimit_path(sumlimit) %></td>
+    <td><%= link_to 'Удалить', sumlimit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

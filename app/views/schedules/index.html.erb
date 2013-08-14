@@ -1,9 +1,9 @@
-<h1>Listing schedules</h1>
+<h1>Расписание</h1>
 
 <table>
   <tr>
-    <th>Timein</th>
-    <th>Timeout</th>
+    <th>Время начала</th>
+    <th>Время окончания</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,11 +11,10 @@
 
 <% @schedules.each do |schedule| %>
   <tr>
-    <td><%= schedule.timein %></td>
-    <td><%= schedule.timeout %></td>
-    <td><%= link_to 'Show', schedule %></td>
-    <td><%= link_to 'Edit', edit_schedule_path(schedule) %></td>
-    <td><%= link_to 'Destroy', schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= schedule.timein.to_formatted_s(:time)  %></td>
+    <td><%= schedule.timeout.to_formatted_s(:time)  %></td>
+    <td><%= link_to 'Редактировать', edit_schedule_path(schedule) %></td>
+    <td><%= link_to 'Удалить', schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

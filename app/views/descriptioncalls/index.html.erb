@@ -1,9 +1,9 @@
-<h1>Listing descriptioncalls</h1>
+<h1>Описание звонка</h1>
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Fin</th>
+    <th>Наименование</th>
+    <th>Статус</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,7 +12,7 @@
 <% @descriptioncalls.each do |descriptioncall| %>
   <tr>
     <td><%= descriptioncall.name %></td>
-    <td><%= descriptioncall.fin %></td>
+    <td><%= descriptioncall.fin == true ? "Исключен" : "Включен" %></td>
     <td><%= link_to 'Show', descriptioncall %></td>
     <td><%= link_to 'Edit', edit_descriptioncall_path(descriptioncall) %></td>
     <td><%= link_to 'Destroy', descriptioncall, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -22,4 +22,4 @@
 
 <br />
 
-<%= link_to 'New Descriptioncall', new_descriptioncall_path %>
+<%= link_to 'Новое описание звонка', new_descriptioncall_path %>
